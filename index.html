@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVisão - Crítica e Catálogo Acessível</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones para redes sociais e controles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="tema-escuro">
+
+    <!-- Barra Superior de Acessibilidade -->
+    <header class="barra-acessibilidade" role="region" aria-label="Controles de Acessibilidade">
+        <div class="container flex-acessibilidade">
+            <button id="btn-contraste" class="btn-acessivel" aria-pressed="false">
+                <i class="fas fa-adjust"></i> <span id="txt-contraste">Modo Claro (Alto Contraste)</span>
+            </button>
+
+            <div class="controles-leitura" role="group" aria-label="Leitor de Áudio por Idioma">
+                <span class="label-audio"><i class="fas fa-volume-up"></i> Ouvir Página:</span>
+                <button class="btn-idioma" data-lang="pt-BR" aria-label="Ler página em Português">PT</button>
+                <button class="btn-idioma" data-lang="en-US" aria-label="Read page in English">EN</button>
+                <button class="btn-idioma" data-lang="es-ES" aria-label="Leer página en Español">ES</button>
+                <button id="btn-parar-leitura" class="btn-parar" aria-label="Parar leitura">
+                    <i class="fas fa-stop"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cabeçalho Principal -->
+    <div class="hero-cinema">
+        <div class="container">
+            <h1><i class="fas fa-film"></i> CineVisão</h1>
+            <p class="subtitulo">Curadoria crítica e acessível da sétima arte</p>
+        </div>
+    </div>
+
+    <!-- Área Principal -->
+    <main class="container" id="conteudo-principal">
+        
+        <!-- Campo de Escolha de Gênero -->
+        <section class="filtro-secao" aria-labelledby="titulo-filtro">
+            <label for="seletor-genero" id="titulo-filtro" class="label-grande">
+                Escolha o gênero ou tipo de obra:
+            </label>
+            <select id="seletor-genero" class="select-acessivel">
+                <option value="todos">Todos os Gêneros (Catálogo Geral)</option>
+                <option value="Comedy">Comédia / Humor</option>
+                <option value="Drama">Drama</option>
+                <option value="Documentary">Educativo / Documentário</option>
+                <option value="Science-Fiction">Ficção Científica</option>
+                <option value="Action">Ação e Aventura</option>
+                <option value="Family">Família / Animação</option>
+            </select>
+        </section>
+
+        <!-- Grade de Cards de Filmes -->
+        <section aria-live="polite">
+            <h2 class="titulo-secao">Em Cartaz & Crítica Especializada</h2>
+            <div id="grade-filmes" class="grade-cards">
+                <!-- Os cards serão inseridos aqui via JavaScript -->
+                <p class="carregando">Carregando acervo cinematográfico...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé com Mídias Sociais Animadas -->
+    <footer class="rodape-cinema">
+        <div class="container">
+            <p class="texto-rodape">CineVisão © 2026 - Cinema sem barreiras para todos os olhares.</p>
+            <div class="redes-sociais">
+                <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon youtube" aria-label="Nosso canal no YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon instagram" aria-label="Nosso perfil no Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://letterboxd.com" target="_blank" rel="noopener" class="social-icon letterboxd" aria-label="Nossas críticas no Letterboxd">
+                    <i class="fas fa-ticket-alt"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Widget Oficial VLibras (Acessibilidade em Língua Brasileira de Sinais) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
+</body>
+</html>

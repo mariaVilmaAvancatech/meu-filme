@@ -1,0 +1,310 @@
+/* Variáveis de Tema (Sala de Cinema Escura vs Alto Contraste Claro) */
+:root {
+    --bg-principal: #0a0a0c;
+    --bg-card: #16161d;
+    --texto-principal: #ffffff;
+    --texto-secundario: #e0e0e0;
+    --destaque-ouro: #ffd700;
+    --texto-sobre-ouro: #000000;
+    --borda-card: #ffd700;
+    --sombra-card: rgba(255, 215, 0, 0.25);
+}
+
+body.tema-claro {
+    --bg-principal: #ffffff;
+    --bg-card: #f4f4f6;
+    --texto-principal: #000000;
+    --texto-secundario: #1a1a1a;
+    --destaque-ouro: #003366; /* Azul marinho profundo para alto contraste no claro */
+    --texto-sobre-ouro: #ffffff;
+    --borda-card: #003366;
+    --sombra-card: rgba(0, 51, 102, 0.2);
+}
+
+/* Reset e Base para Baixa Visão */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-size: 1.25rem; /* Base ampliada (20px) */
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Foco visível de alto impacto para teclado */
+*:focus {
+    outline: 4px solid #ff4500;
+    outline-offset: 4px;
+}
+
+.container {
+    width: 92%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Barra de Acessibilidade */
+.barra-acessibilidade {
+    background-color: var(--bg-card);
+    border-bottom: 3px solid var(--destaque-ouro);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.flex-acessibilidade {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-acessivel, .btn-idioma, .btn-parar {
+    background-color: var(--destaque-ouro);
+    color: var(--texto-sobre-ouro);
+    border: 2px solid var(--texto-principal);
+    padding: 10px 18px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.btn-acessivel:hover, .btn-idioma:hover, .btn-parar:hover {
+    transform: scale(1.05);
+}
+
+.btn-parar {
+    background-color: #d90429;
+    color: #ffffff;
+}
+
+.controles-leitura {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Cabeçalho Estilo Cinema */
+.hero-cinema {
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 2px dashed var(--destaque-ouro);
+}
+
+.hero-cinema h1 {
+    font-size: 3rem;
+    color: var(--destaque-ouro);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    font-size: 1.4rem;
+    color: var(--texto-secundario);
+    margin-top: 10px;
+}
+
+/* Seção de Filtro */
+.filtro-secao {
+    margin: 35px 0;
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 3px solid var(--borda-card);
+}
+
+.label-grande {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--destaque-ouro);
+}
+
+.select-acessivel {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    border: 3px solid var(--destaque-ouro);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Grade Responsiva de Cards */
+.titulo-secao {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--destaque-ouro);
+}
+
+.grade-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Card de Filme com Animação */
+.card-filme {
+    background-color: var(--bg-card);
+    border: 3px solid var(--borda-card);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
+}
+
+.card-filme:hover, .card-filme:focus-within {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px var(--sombra-card);
+}
+
+.poster-container {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    border-bottom: 3px solid var(--borda-card);
+}
+
+.poster-filme {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-filme:hover .poster-filme {
+    transform: scale(1.08);
+}
+
+.card-conteudo {
+    padding: 22px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-titulo {
+    font-size: 1.6rem;
+    color: var(--destaque-ouro);
+    margin-bottom: 10px;
+}
+
+.card-genero {
+    display: inline-block;
+    background-color: var(--destaque-ouro);
+    color: var(--texto-sobre-ouro);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.critica-box {
+    background-color: var(--bg-principal);
+    padding: 15px;
+    border-left: 5px solid var(--destaque-ouro);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.critica-titulo {
+    font-weight: bold;
+    color: var(--destaque-ouro);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.btn-ouvir-card {
+    margin-top: 18px;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--destaque-ouro);
+    color: var(--texto-sobre-ouro);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Rodapé e Mídias Sociais Animadas */
+.rodape-cinema {
+    background-color: var(--bg-card);
+    border-top: 4px solid var(--destaque-ouro);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: var(--destaque-ouro);
+    color: var(--texto-sobre-ouro);
+    font-size: 2rem;
+    text-decoration: none;
+    border: 3px solid var(--texto-principal);
+    transition: transform 0.4s ease, background-color 0.3s ease;
+    animation: pulsoSuave 3s infinite ease-in-out;
+}
+
+.social-icon:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.social-icon:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.social-icon:hover {
+    transform: rotate(15deg) scale(1.2);
+    animation: none;
+}
+
+@keyframes pulsoSuave {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-cinema h1 {
+        font-size: 2.2rem;
+    }
+    .flex-acessibilidade {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .controles-leitura {
+        justify-content: center;
+    }
+}
